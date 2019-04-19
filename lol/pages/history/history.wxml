@@ -1,0 +1,8 @@
+<view class="container history-list">
+  <block wx:for="{{history}}">
+    <view class="image-section" style="magin-left:-5px;">
+      <image style="width:80px; height:80px;" mode="aspectFill" src="{{item.src}}" />
+    </view>
+    <text style="display:inline-block; float:right">{{item.name}} {{item.winFail}} {{item.time}}</text>
+  </block>
+</view>
