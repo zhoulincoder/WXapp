@@ -1,0 +1,52 @@
+<!-- pages/profile/profile.wxml -->
+<view class="page-body">
+  <form bindsubmit="onSubmit">
+    <view class="section">
+      <view class="section_title">姓名</view>
+      <input name="name" placeholder="请输入姓名" focus />
+    </view>
+    <view class="section">
+      <view class="section_title">单身: {{notSingle ? '否' : '是'}}</view>
+      <switch name="switch" bindchange="onSingleChange" />
+    </view>
+    <view class="section">
+      <view class="section-title">性别</view>
+      <radio-group name="sex">
+        <label for="">
+          <radio value="boy" />
+          男
+        </label>
+        <label for="">
+          <radio value="girl" />
+          女
+        </label>
+        <label for="">
+          <radio value="noknow" />
+          外星人
+        </label>
+      </radio-group>
+    </view>
+    <view class="section">
+      <view class="section-title">爱好</view>
+      <checkbox-group name="hobby">
+        <label for="">
+          <checkbox value="boy" />
+          男
+        </label>
+        <label for="">
+          <checkbox value="girl" />
+          女
+        </label>
+        <label for="">
+          <checkbox value="noknow" />
+          妖人
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="section">
+      <button type="primary" form-type="submit">提交</button>
+    </view>
+  </form>
+  <view class="profileLists" wx:for="{{profileLists}}">
+    {{item.name}}  {{item.switch}} {{item.sex}} {{item.hobby}}</view>
+</view>
