@@ -1,0 +1,6 @@
+/* pages/main/main.wxss */
+.mvDiv{
+  width: 750rpx;
+  padding: 10rpx 20rpx;
+}
+
