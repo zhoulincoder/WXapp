@@ -1,4 +1,3 @@
-/* pages/index/index.wxss */
 .wrapper .group {
   padding: 0 36rpx 10rpx 36rpx;
   background: #fff;
