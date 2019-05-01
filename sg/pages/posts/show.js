@@ -1,17 +1,43 @@
-// pages/users/show.js
+// pages/posts/show.js
+import {
+  API_DETAIL
+} from '../../config/api';
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    user_email:false
+    isLoading: true,
+    title: '',
+    author: {
+
+    },
+    article:{
+
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const id = options.id;
+    const url = `${API_DETAIL}/${id}`;
+    //  console.log(url)
+    wx.request({
+      url: API_DETAIL,
+      success: (res) => {
+        // let data = app.towxml.toJson(res.data.data.content, 'html');
+        console.log(res)
+        this.setData({
+          'isLoading': false,
+          'author': res.data.data.author,
+          'title': res.data.data.title,
+        })
+      }
+    })
 
   },
 

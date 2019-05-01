@@ -1,13 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
+    "pages/posts/show",
     "pages/users/show",
-    "pages/posts/create"
+    "pages/posts/create",
+    "pages/logs/logs"
   ],
   "window": {
-    "navigationBarTitleText": "旅梦开饭团",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "旅梦诗歌集",
+    "navigationBarBackgroundColor": "#eee",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "dark",

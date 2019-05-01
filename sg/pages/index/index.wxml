@@ -1,8 +1,6 @@
 <import src="/templates/spinner.wxml" />
-<import src="/templates/footer.wxml"></import>
-<navigator url="/pages/posts/show?id={{ item.id }}" 
-  class="media-box media-box_appmsg" wx:for="{{ entities }}"
-  wx:key="{{ item.id }}">
+<import src="/templates/footer.wxml" />
+<navigator url="/pages/posts/show?id={{ item.id }}" class="media-box media-box_appmsg" wx:for="{{ entities }}" wx:key="{{ item.id }}">
   <view class="media-box__hd media-box__hd_in-appmsg">
     <image class="media-box__thumb" src="/assets/images/a.png" />
   </view>
@@ -11,5 +9,5 @@
     <view class="media-box__desc">{{item.excerpt.plaintext}}</view>
   </view>
 </navigator>
-<template is="spinner" data="{{isLoading}}"/>
-<template is="footer" data="{{isEarth}}"/>
+<template is="spinner" data="{{isLoading}}" />
+<template is="footer" data="{{isEarth}}" />
