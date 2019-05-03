@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/accountBooks/accountBooks",
+    "pages/index/index",
+    "components/accountCover/accountCover"
+  ],
+  "window": {
+    "backgroundColor": "#3a3a3a",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#35363a",
+    "navigationBarTitleText": "云开发 旅行账本",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}
