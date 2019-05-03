@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/musicList/index",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f66",
+    "navigationBarTitleText": "林俊杰的MV",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#515151",
+    "selectedColor": "#f66",
+    "list": [
+      {
+        "pagePath": "pages/musicList/index",
+        "text": "音乐",
+        "iconPath": "/images/musicList.png",
+        "selectedIconPath": "/images/musicList_hover.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "/images/mine.png",
+        "selectedIconPath": "/images/mine_hover.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

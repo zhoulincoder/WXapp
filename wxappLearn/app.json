@@ -12,7 +12,7 @@
   },
   "tabBar": {
     "color": "#515151",
-    "background": "fff",
+    "background": "#fff",
     "list": [
       {
         "pagePath": "pages/main/index",

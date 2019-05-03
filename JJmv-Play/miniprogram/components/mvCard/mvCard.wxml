@@ -1,0 +1,11 @@
+
+  <view class="flex item" data-mvList="{{mvList}}">
+    <view class="item_left">
+      <image src="{{mvList.coverUrl}}" />
+    </view>
+    <view class="item_middle">
+      <view class="flex_auto">
+        <text class="title">{{mvList.mvName}}</text>
+      </view>
+    </view>
+  </view>

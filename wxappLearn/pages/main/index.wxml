@@ -14,15 +14,13 @@
         <image src="../../images/icon_search.png" />
       </view>
     </view>
-
-    <swiper indicator-dots="{{true}}" autoplay="{{true }}"  indicator-active-color="#fff" interval="3000">
+    <swiper indicator-dots="{{true}}" autoplay="{{true }}" indicator-active-color="#fff" interval="3000">
       <block wx:for="{{imageUrl}}" wx:key="{{index}}">
         <swiper-item class="" item-id="">
           <image class="slide-image" src="{{item}}" />
         </swiper-item>
       </block>
     </swiper>
-
     <view wx:for="{{items}}" wx:key="{{index}}">
       <view class="flex item" hover-class="gray_hover" hover-start-time="100">
         <view class="item_left">
@@ -34,10 +32,12 @@
           </view>
           <view>
             <view class="item_grade">
-              <text class="score" wx:if="{{item.isShow == 0}}">{{item.wantSee}}
+              <text class="score" wx:if="{{item.isShow == 0}}">
+                {{item.wantSee}}
                 <text style="font-size:12px;">人想看</text>
               </text>
-              <text class="score" wx:if="{{item.isShow == 1}}">{{item.grade}}
+              <text class="score" wx:if="{{item.isShow == 1}}">
+                {{item.grade}}
                 <text style="font-size:12px;">分</text>
               </text>
 
@@ -46,8 +46,10 @@
         </view>
         <view class="item_right">
           <view>
-            <text class="buy" style="background-color:{{item.isShow == 0 ? '#52b0eb' : '#ef4238'}}">{{item.isShow == 0 ? '预售' :'购票'}}</text>
-          </view>  
+            <text class="buy" style="background-color:{{item.isShow == 0 ? '#52b0eb' : '#ef4238'}}">
+              {{item.isShow == 0 ? '预售' :'购票'}}
+            </text>
+          </view>
         </view>
       </view>
     </view>

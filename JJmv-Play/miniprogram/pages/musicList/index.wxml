@@ -1,0 +1,18 @@
+<view class="container">
+  <scroll-view>
+    <swiper indicator-dots="{{true}}" autoplay="{{true }}" indicator-active-color="#fff" interval="3000">
+      <block wx:for="{{imageUrl}}" wx:key="{{index}}">
+        <swiper-item class="" item-id="">
+          <image class="slide-image" src="{{item}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+ </scroll-view>
+ <block wx:for="{{mvmsgs}}" wx:key="index">
+    <swiper-item >
+      <mvCard mvList="{{item}}">
+      </mvCard>
+    </swiper-item >
+  </block>
+</view >
+ 
