@@ -25,7 +25,7 @@ Page({
   onLoad: function (options) {
     const id = options.id;
     const url = `${API_DETAIL}/${id}`;
-    //  console.log(url)
+    console.log(url)
     wx.request({
       url: API_DETAIL,
       success: (res) => {

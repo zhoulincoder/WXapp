@@ -38,5 +38,6 @@
         "selectedIconPath": "assets/icons/face-active.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
