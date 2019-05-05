@@ -1,9 +1,9 @@
 /* component/mvCard/mvCard.wxss */
-.flex_auto {
+
+
+ .item {
   display: flex;
-  align-items: center;
-}
-.item {
+  box-sizing: border-box;
   padding: 10px;
   background-color: #fff;
   color: #787878;
@@ -31,7 +31,7 @@
   color: #000;
   font-weight: bold;
   max-width: 140px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  /* overflow: hidden;
+  text-overflow: ellipsis; */
+  white-space: nowrap; 
+} 

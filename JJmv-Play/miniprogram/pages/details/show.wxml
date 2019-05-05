@@ -1,0 +1,6 @@
+<!-- miniprogram/pages/details/show.wxml -->
+
+<view class="container">
+  <txv-video vid="{{posts.Vid}}"  playerid="{{posts.Vid}}"    autoplay="{{false}}">
+  </txv-video>
+</view>

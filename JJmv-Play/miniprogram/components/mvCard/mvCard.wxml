@@ -1,4 +1,3 @@
-
   <view class="flex item" data-mvList="{{mvList}}">
     <view class="item_left">
       <image src="{{mvList.coverUrl}}" />

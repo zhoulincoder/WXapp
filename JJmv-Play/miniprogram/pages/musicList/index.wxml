@@ -7,12 +7,17 @@
         </swiper-item>
       </block>
     </swiper>
- </scroll-view>
- <block wx:for="{{mvmsgs}}" wx:key="index">
-    <swiper-item >
-      <mvCard mvList="{{item}}">
-      </mvCard>
-    </swiper-item >
-  </block>
+  </scroll-view>
+  
+   <view class="mvList-all">
+    <navigator url="/pages/details/show?id={{item.id}}" wx:for="{{mvmsgs}}" wx:key="{{item.id}}">
+        <flex-item catch:tap="">
+          <mvCard mvList="{{item}}">
+          </mvCard>
+        </flex-item >
+    </navigator>
+  </view>
+  
+ 
 </view >
  

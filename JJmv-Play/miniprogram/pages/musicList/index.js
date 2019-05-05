@@ -5,9 +5,9 @@ const app = getApp()
 Page({
   data: {
     imageUrl: [
-      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
+      'https://images.pexels.com/photos/556666/pexels-photo-556666.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      'https://images.pexels.com/photos/1262304/pexels-photo-1262304.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      'https://images.pexels.com/photos/257840/pexels-photo-257840.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
     ],
     mvmsgs: []
   },
@@ -23,7 +23,7 @@ Page({
           console.log(res);
           if(res.data.length) {
             this.setData({
-              mvmsgs: res.data.reverse()
+              mvmsgs: res.data
             });
           }
           wx.hideLoading();
@@ -35,3 +35,4 @@ Page({
   }
 
 })
+

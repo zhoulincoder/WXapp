@@ -1,0 +1,1 @@
+export const API_DETAIL = 'https://www.easy-mock.com/mock/5ccd3a8d1ad46577a8e4e9dd/mvUrl'

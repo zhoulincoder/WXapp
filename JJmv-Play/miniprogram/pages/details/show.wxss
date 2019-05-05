@@ -1,0 +1,4 @@
+/* miniprogram/pages/details/show.wxss */
+video{
+  width: 100%;
+}
