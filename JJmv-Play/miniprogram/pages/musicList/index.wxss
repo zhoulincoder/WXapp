@@ -1,3 +1,7 @@
 .slide-image{
   width: 100%;
 }
+.mvList-all{
+  padding: 15rpx;
+  box-sizing: border-box;
+}

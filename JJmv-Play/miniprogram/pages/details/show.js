@@ -27,7 +27,7 @@ Page({
       url: API_DETAIL,
       success: (res) => {
         // console.log(res)
-        // console.log(res.data.data)
+        console.log(res.data.data.Detail)
         const Detail =  res.data.data.Detail
          for(let i = 0; i < Detail.length; i++){
           if(id == Detail[i].id){
