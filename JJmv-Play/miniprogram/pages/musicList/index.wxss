@@ -1,7 +1,11 @@
+.swiper-header{
+  height: 340rpx;
+}
+
 .slide-image{
   width: 100%;
 }
 .mvList-all{
-  padding: 15rpx;
+  padding: 10rpx;
   box-sizing: border-box;
 }

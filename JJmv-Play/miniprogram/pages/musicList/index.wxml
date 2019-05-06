@@ -1,23 +1,22 @@
 <view class="container">
-  <scroll-view>
-    <swiper indicator-dots="{{true}}" autoplay="{{true }}" indicator-active-color="#fff" interval="3000" >
-      <block wx:for="{{imageUrl}}" wx:key="{{index}}">
-        <swiper-item class="" item-id="">
-          <image class="slide-image" src="{{item}}" mode="widthFix" />
-        </swiper-item>
-      </block>
-    </swiper>
-  </scroll-view>
-  
-   <view class="mvList-all">
+  <swiper class="swiper-header" indicator-dots="{{true}}" autoplay="{{true }}" indicator-active-color="#fff" interval="3000" >
+    <block wx:for="{{imageUrl}}" wx:key="{{index}}">
+      <swiper-item class="swiper-item">
+        <image class="slide-image" src="{{item}}" mode="widthFix" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="mvList-all">
     <navigator url="/pages/details/show?id={{item.id}}" wx:for="{{mvmsgs}}" wx:key="{{item.id}}">
-        <flex-item catch:tap="">
-          <mvCard mvList="{{item}}">
-          </mvCard>
-        </flex-item >
+      <flex-item catch:tap="">
+        <mvCard mvList="{{item}}">
+        </mvCard>
+      </flex-item >
     </navigator>
   </view>
-  
- 
+
 </view >
+ 
+
  

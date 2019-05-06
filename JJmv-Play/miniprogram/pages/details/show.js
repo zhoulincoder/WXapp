@@ -11,8 +11,8 @@ Page({
   data: {
     posts: {
 
-    },
-    isLoading: false
+    }
+    
   },
 
   /**
@@ -28,15 +28,31 @@ Page({
       success: (res) => {
         // console.log(res)
         console.log(res.data.data.Detail)
-        const Detail =  res.data.data.Detail
-         for(let i = 0; i < Detail.length; i++){
-          if(id == Detail[i].id){
-           var n = i
-          }
-        }
-        this.setData({
-          'posts': Detail[n]
+        // const Detail =  res.data.data.Detail
+        //  for(let i = 0; i < Detail.length; i++){
+        //   if(id == Detail[i].id){
+        //    var n = i
+        //   }
+        // }
+        // this.setData({
+        //   'posts': Detail[n]
+        // })
+        wx.showLoading({
+          title: '数据加载中'
         })
+        const posts = res.data.data.Detail.find((item) => {
+          return item.id == id 
+        })
+        if( posts) {
+          this.setData({
+            posts: posts
+          })
+          wx.hideLoading();
+        } else {
+          wx.redirectTo({
+            url: '../musicList/index'
+          })
+        }
       }
     })
   },
