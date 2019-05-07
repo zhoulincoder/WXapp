@@ -11,9 +11,10 @@
 <van-dialog use-slot async-close show="{{ newGroupModal}}" show-cancel-button bind:cancel="closeDialog" bind:confirm="createGroup" title="创建一个群组" id="new-group-modal">
   <view class="group-dialog-body">
     <van-field value="{{groupName}}" label="群组名" maxlength="{{20}}" placeholder="请输入群组名字" 
-    bind:input="onGroupNameChange">
+    bind:change="onGroupNameChange">
       
     </van-field>
   </view>
 </van-dialog>
 <van-notify id="notify-selector"> </van-notify>
+<van-notify id="notify-success"> </van-notify>

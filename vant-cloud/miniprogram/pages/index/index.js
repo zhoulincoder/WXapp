@@ -25,7 +25,7 @@ Page({
   },
   createGroup() {
     let self = this;
-    if( self.data.groupName === '' ){
+    if (self.data.groupName === '') {
       Notify({
         text: '输入框不能为空',
         duration: 1500,
@@ -33,7 +33,39 @@ Page({
         backgroundColor: '#dc3545'
       });
       self.selectComponent('#new-group-modal').stopLoading();
-      return 
+      return
+    } else {
+      wx.cloud.callFunction({
+        name: 'createGroup',
+        data: {
+          groupName: self.data.groupName
+        },
+        success(res) {
+          console.log(res);
+          self.setData({
+            newGroupModal: false,
+            groupName: ''
+          })
+          Notify({
+            text: '新建成功',
+            duration: 1500,
+            selector: '#notify-success',
+            backgroundColor: '#28a745'
+          });
+          self.selectComponent('#new-group-modal').stopLoading();
+          // return
+          //tabBar 之间的跳转
+          setTimeout(() => {
+            wx.switchTab({
+              url:'/pages/group/group'
+            })
+          })
+        },
+        fail(error) {
+          console.log(error)
+        }
+      })
+      
     }
   },
   onGroupNameChange(event) {
@@ -41,7 +73,7 @@ Page({
     this.setData({
       groupName: event.detail
     })
-    
+
   },
   onLoad: function (options) {
 

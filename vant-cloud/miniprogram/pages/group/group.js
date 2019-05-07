@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    groupList: []
   },
 
   /**
@@ -26,7 +26,26 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //详情页 返回  页面每次都会渲染，实时刷新；onload不会
+    const self = this;
+    wx.showNavigationBarLoading();
+    wx.cloud.callFunction({
+      name: 'getGroup',
+      data: {},
+      success(res) {
+        console.log(res.result)
+        self.setData({
+          groupList: res.result
+          //小程序返回自带一个result
+        })
+      },
+      fail(error) {
+        console.log(error)
+      },
+      complete() {
+        wx.hideNavigationBarLoading() 
+      }
+    })
   },
 
   /**
