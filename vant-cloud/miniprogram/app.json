@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/group/group",
-    "pages/personal/personal"
+    "pages/personal/personal",
+    "pages/login/login"
   ],
   "window": {
     "backgroundColor": "#F2F2F2",
@@ -12,7 +13,6 @@
     "navigationBarTextStyle": "black"
   },
   "cloud": true,
-
   "tabBar": {
     "list": [
       {
@@ -36,7 +36,6 @@
     ],
     "selectedColor": "#3585F9"
   },
-
   "usingComponents": {
     "van-button": "./pages/dist/button/index",
     "van-icon": "./pages/dist/icon/index",

@@ -33,7 +33,7 @@ Page({
       name: 'getGroup',
       data: {},
       success(res) {
-        console.log(res.result)
+        console.log(res.data + ' res.result')
         self.setData({
           groupList: res.result
           //小程序返回自带一个result
