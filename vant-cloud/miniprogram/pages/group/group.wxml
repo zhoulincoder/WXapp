@@ -10,7 +10,7 @@
       <view wx:for="{{groupList}}" wx:key="{{index}}" 
       class="public-item {{ index === 0 ? 'top' : ''}} {{index === groupList.length - 1 ? 'bottom' : ''}}"  
       data-group="{{item}}">
-        <view class="public-item-name">{{item.name}}}</view>
+        <view class="public-item-name">{{item.name}}</view>
         <view style="display:flex; align-item:center;">
           <image src="{{item.createBy.avatarUrl}}" class="creater"/>
           <van-icon name="arrow" style="color:#c6c6c6; display:flex;" />
