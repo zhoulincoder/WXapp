@@ -15,91 +15,113 @@ Page({
     ],
     curIndex: 0,
     toView: 'guowei',
-    isScoll: false
+    isScroll: false,
+    detail: '',
+    heightArr: [],
+    lastActive: 0,
+    conHeight: 0
   },
   switchTab(e) {
-    console.log(e)
-    //绑定的点击事件 会打印自定的属性
     this.setData({
-      curIndex: e.currentTarget.dataset.index,
-      toView: e.currentTarget.dataset.id
+      curIndex: e.target.dataset.index,
+      toView: e.target.dataset.id
     })
   },
-  bindScroll(e) {
-    const self = this;
-    console.log(e.detail.scrollTop)
-    if(e.detail.scrollTop > 0 && e.detail.scrollTop <= 240) {
-      console.log(e.detail.scrollTop)
-      self.setData({
-        toView: 'guowei'
-      })
+  switchContent(e) {
+    let _this = this
+    //console.log(e)
+    console.log(e.detail.scrollTop);
+    const scrollTop = e.detail.scrollTop;
+    const scorllArr = this.data.heightArr;
+    if (scrollTop >= scorllArr[scorllArr.length - 1] - (_this.data.conHeight / 2)) {
+      //滚动条距离顶端的值 >= 高度数组最后一个值(滚动页面总高度3330px) - (当前可视区域高度1110rpx / 2)
+      //此时页面滚到底部
+      return;
+    } else {
+      for (let i = 0; i < scorllArr.length; i++) {
+        //下面两个if 可以写成且？
+        //lastActive 什么意思
+        if (scrollTop >= 0 && scrollTop < scorllArr[0]) {
+          // 垂直滚动条的位置 >= 零 并且小于等于高度数组中第一个值555这与下面的if条件冲突了
+          //所以增加lastActive 判断
+          //保证0页面和1页面的过渡自然
+          if (0 != _this.data.lastActive) {
+            _this.setData({
+              curIndex: 0,
+              lastActive: 0,
+            })
+          }
+        } else if (scrollTop >= scorllArr[i - 1] -100 && scrollTop < scorllArr[i]) {
+          //垂直滚动条的位置 >= 
+          if (i != _this.data.lastActive) {
+            console.log(i)
+            _this.setData({
+              curIndex: i,
+              lastActive: i,
+            })
+          }
+
+        }
+      }
     }
-    if(e.detail.scrollTop > 240 && e.detail.scrollTop <= 555) {
-      console.log(e.detail.scrollTop)
-      self.setData({
-        toView: 'shucai'
-      })
-    }
-    if(e.detail.scrollTop > 555 && e.detail.scrollTop <= 1110) {
-      console.log(e.detail.scrollTop)
-      self.setData({
-        toView: 'chaohuo'
-      })
-    }
-    if(e.detail.scrollTop > 1110 && e.detail.scrollTop <= 1665) {
-      console.log(e.detail.scrollTop)
-      self.setData({
-        toView: 'dianxin'
-      })
-    }
-    if(e.detail.scrollTop > 1665 && e.detail.scrollTop <= 2220) {
-      console.log(e.detail.scrollTop)
-      self.setData({
-        toView: 'cucha'
-      })
-    }
-    if(e.detail.scrollTop > 2220 && e.detail.scrollTop <= 2775) {
-      console.log(e.detail.scrollTop)
-      self.setData({
-        toView: 'danfan'
-      })
-    }
-    
+
   },
-  // toview 动 菜单栏添加on
-  // scrollTop() {
-  //   const categoryRight = document.getElementsByClassName('category-right');
-  //   let num = categoryRight.scrollTop();
-  //   console.log(num + 'px')
-  // },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(1)
+    let _this = this
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.windowWidth)
+        let windowHeight = (res.windowHeight * (750 / res.windowWidth));
+        //console.log(windowHeight) //最后获得转化后得rpx单位的窗口高度 1110rpx
+        _this.setData({
+          conHeight: windowHeight,
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    let self = this;
-    console.log(3);
     wx.request({
       url: 'http://www.gdfengshuo.com/api/wx/cate-detail.txt',
-      success(res) {
-        self.setData({
-          detail:res.data
+      success: (res) => {
+        // console.log(res)
+        this.setData({
+          detail: res.data
+        })
+        let _this = this
+        let heightArr = [];
+        let h = 0;
+        //创建节点选择器
+        const query = wx.createSelectorQuery();
+        //选择id
+        query.selectAll('.cate-box').boundingClientRect()
+        query.exec(function (res) {
+          console.log(res)
+          //res就是 所有标签为cate-box的元素的信息 的数组
+          res[0].forEach((item) => {
+            h += item.height;
+            heightArr.push(h);
+          })
+          _this.setData({
+            heightArr: heightArr
+          })
+          console.log(_this.data.heightArr)
         })
       }
     })
   },
-  
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(2)
+
   },
 
   /**
