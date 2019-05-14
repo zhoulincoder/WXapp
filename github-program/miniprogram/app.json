@@ -1,8 +1,7 @@
 {
   "pages": [
-    "pages/news/news",
     "pages/trends/trends",
-   
+    "pages/news/news",
     "pages/issues/issues",
     "pages/pulls/pulls",
     "pages/me/me"

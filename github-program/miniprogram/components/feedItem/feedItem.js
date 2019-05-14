@@ -5,7 +5,7 @@ Component({
    */
   properties: {
     item: {
-      type:Object,
+      type: Object,
       value: {}
     }
   },

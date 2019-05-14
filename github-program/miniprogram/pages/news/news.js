@@ -1,5 +1,6 @@
 // miniprogram/pages/news/news.js
-const github = require('../../api/github.js');
+const github = require('../../api/github.js.js');
+let nextFunc = null;
 Page({
 
   /**
@@ -7,36 +8,47 @@ Page({
    */
   data: {
     events: []
+    
   },
-  reloadData(){
+  reloadData() {
     const successHandle = ({data, next}) => {
       wx.stopPullDownRefresh();
       this.setData({
         events: data
       })
+      nextFunc = next;
     }
-    const errorHandle=() => {
+    const errorHandle = () => {
       wx.stopPullDownRefresh();
     }
-    //定义一个匿名函数
+    //获取数据
     github.events().get()
     .then(
+      //交给 successHandle
       successHandle
     )
     .catch(
       errorHandle
     )
-  },  
-  
+  },
+  //如何拿第二页第三页更多的信息
+  loadMoreActivities() {
+    //加载下一页数据的方法
+    if(nextFunc) {
+      //这里有个解构
+      nextFunc().then( ({data, next}) => {
+        nextFunc = next;
+        console.log('more data', data);
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     wx.startPullDownRefresh();
   },
-  startPullDownRefresh() {
-    this.reloadData()
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -69,14 +81,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.reloadData();
+    
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.loadMoreActivities();
   },
 
   /**

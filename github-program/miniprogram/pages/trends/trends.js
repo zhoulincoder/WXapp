@@ -1,5 +1,6 @@
 // miniprogram/pages/trends/trends.js
 const github = require('../../api/github.js');
+
 const timeRange = [
   { label: 'Daily', value: 'Daily' },
   { label: 'Weekly', value: 'Weekly' },
@@ -20,7 +21,7 @@ const languages = [
   'Shell', 'SQL', 'Swift',
   'TeX',
   'Vue'
-].map(it => ({label: it, value: it}));
+].map(it => ({ label: it, value: it }));
 
 Page({
 
@@ -32,13 +33,15 @@ Page({
     lang: languages[0],
     trends: [],
     selectorValues: [timeRange, languages],
-    selectedIndices: [0,0]
+    selectedIndices: [0, 0]
   },
   reloadData() {
-    const {selectedIndices } = this.data;
-    const since = timeRange[selectedIndices[0]].value.toLowerCase();
-    const language = languages[selectedIndices[1]].value.toLowerCase();
-    //设置并传递限制条件
+    const { selectedIndices } = this.data;
+    const since = timeRange[selectedIndices[0]]
+    .value.toLowerCase();
+    const language = languages[selectedIndices[1]]
+    .value.toLowerCase();
+    // 返回一个 promise
     github.trendings({since, language})
     .then(data => {
       console.log(data);
@@ -48,19 +51,17 @@ Page({
       wx.stopPullDownRefresh();
     })
     .catch(() => {
-      //捕捉到错误停止下拉刷新
       wx.stopPullDownRefresh();
     })
   },
   changeFilter(event) {
     const selectedIndices = event.detail.value;
-    console.log(selectedIndices);
     this.setData({
       selectedIndices
     });
-    //下拉刷新
     wx.startPullDownRefresh();
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -100,7 +101,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    //reloadData 复制请求数据
     this.reloadData();
   },
 

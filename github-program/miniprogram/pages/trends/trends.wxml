@@ -1,9 +1,16 @@
 <view class="trends">
-  <trend repo="{{ item }}" wx:for="{{ trends }}" wx:key="{{ index }}">
+  <trend repo="{{ item }}" wx:for="{{ trends }}" 
+  wx:key="{{ index }}">
   </trend>
-  <!-- 选择器   确定更改时间后调用changeFilter-->
-  <picker class="lang-picker" mode="multiSelector" bindchange="changeFilter" 
-  value="{{selectedIndices}}" range="{{selectorValues}}" range-key="label"> 
-    <button type="primary" size="mini">{{since.label}} / {{lang.label}}</button>
+  <picker mode="multiSelector"
+  value="{{ selectedIndices }}"
+  class="lang-picker"
+  bindchange="changeFilter"
+  range="{{ selectorValues }}"
+  range-key="label"
+  >
+  <button type="primary" size="mini">
+    {{ since.label}} / {{ lang.label }}
+  </button>
   </picker>
 </view>

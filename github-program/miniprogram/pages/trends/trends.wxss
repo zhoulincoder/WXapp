@@ -1,4 +1,3 @@
-/* miniprogram/pages/trends/trends.wxss */
 .trends {
   padding-top: 100rpx;
 }

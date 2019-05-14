@@ -8,9 +8,10 @@
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
-		"checkInvalidKey": true
+		"checkInvalidKey": true,
+		"nodeModules": true
 	},
-	"appid": "wxde9bc7834b4cfa50",
+	"appid": "wx3750dcc09fa74c98",
 	"projectname": "github-programm",
 	"libVersion": "2.2.5",
 	"simulatorType": "wechat",
