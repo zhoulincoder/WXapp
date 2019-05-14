@@ -1,0 +1,4 @@
+<!--pages/index/index.wxml-->
+<calendar id="Calendar" bind:select="select"> 
+
+</calendar>
