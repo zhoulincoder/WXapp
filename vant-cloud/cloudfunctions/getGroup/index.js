@@ -6,8 +6,7 @@ const db = cloud.database({ env });  //获取数据库的句柄
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  const openId = cloud.getWXContext().OPENID;  //数据库中获取openid
-  console.log(openId)
+  const openId = cloud.getWXContext().OPENID;  //数据库中获取openid  这个openid指的是什么呢创建者id还是发起请求人的id?
   let groupList = await db.collection('user-group')
     .where({
       userId: openId
@@ -22,7 +21,7 @@ exports.main = async (event, context) => {
         deleted: false
       })
       .get()
-
+      //往后不太理解
     if (oneGroup.data.length > 0) {
       const userInfo = await db.collection('user')
         .where({
@@ -38,28 +37,4 @@ exports.main = async (event, context) => {
   return returnResult.sort((a, b) => {
     a.createTime < b.createTime ? 1 : -1
   })
-  // console.log('getGroup' + event)
-  // //先取出集合记录总数
-  // const countResult = await db.collection('group').count()
-  // const total = countResult.total
-  // // 计算需分几次取
-  // const batchTimes = Math.ceil(total / 100)
-  // // 承载所有读操作的 promise 的数组
-  // const tasks = []
-  // for (let i = 0; i < batchTimes; i++) {
-  //   const promise = db.collection('group').skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()
-  //   tasks.push(promise)
-  // }
-  // // 等待所有
-  // return (await Promise.all(tasks)).reduce((acc, cur) => ({
-  //   data: acc.data.concat(cur.data),
-  //   errMsg: acc.errMsg
-  // }))
-
-  // db.collection('group').doc('yun-func-x0xnp').get({
-  //   success(res) {
-  //     // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-  //     console.log(res.data)
-  //   }
-  // })
 }

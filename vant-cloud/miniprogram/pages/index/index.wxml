@@ -12,7 +12,6 @@
   <view class="group-dialog-body">
     <van-field value="{{groupName}}" label="群组名" maxlength="{{20}}" placeholder="请输入群组名字" 
     bind:change="onGroupNameChange">
-      
     </van-field>
   </view>
 </van-dialog>

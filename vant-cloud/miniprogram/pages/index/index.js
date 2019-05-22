@@ -35,6 +35,7 @@ Page({
       self.selectComponent('#new-group-modal').stopLoading();
       return
     } else {
+      console.log(self.data)
       wx.cloud.callFunction({
         name: 'createGroup',
         data: {

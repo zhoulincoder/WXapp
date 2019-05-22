@@ -41,7 +41,7 @@ Page({
       for (let i = 0; i < scorllArr.length; i++) {
         //下面两个if 可以写成且？
         //lastActive 什么意思
-        if (scrollTop >= 0 && scrollTop < scorllArr[0]) {
+        if (scrollTop >= 0 && scrollTop < scorllArr[0] -100) {
           // 垂直滚动条的位置 >= 零 并且小于等于高度数组中第一个值555这与下面的if条件冲突了
           //所以增加lastActive 判断
           //保证0页面和1页面的过渡自然
