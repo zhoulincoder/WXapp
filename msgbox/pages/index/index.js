@@ -10,7 +10,8 @@ Page({
     this.popup.hidePopup();
   },
   _success() {
-    this.popup.hidePopup();
+    this.popup.hidePopup(); 
+
   },
   change: function(e) {
     console.log('catch')
